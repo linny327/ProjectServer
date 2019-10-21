@@ -638,7 +638,7 @@
                 }
 
                 while (!startYear.isAfter(endYear, 'y')) {
-                    html += '<span data-action="selectYear" class="year' + (startYear.isSame(date, 'y') && !unset ? ' active' : '') + (!isValid(startYear, 'y') ? ' disabled' : '') + '">' + startYear.year() + '</span>';
+                    html += '<span dash-action="selectYear" class="year' + (startYear.isSame(date, 'y') && !unset ? ' active' : '') + (!isValid(startYear, 'y') ? ' disabled' : '') + '">' + startYear.year() + '</span>';
                     startYear.add(1, 'y');
                 }
 
@@ -675,8 +675,8 @@
                     endDecadeYear = startDecade.year() + 12;
                     minDateDecade = options.minDate && options.minDate.isAfter(startDecade, 'y') && options.minDate.year() <= endDecadeYear;
                     maxDateDecade = options.maxDate && options.maxDate.isAfter(startDecade, 'y') && options.maxDate.year() <= endDecadeYear;
-                    html += '<span data-action="selectDecade" class="decade' + (date.isAfter(startDecade) && date.year() <= endDecadeYear ? ' active' : '') +
-                        (!isValid(startDecade, 'y') && !minDateDecade && !maxDateDecade ? ' disabled' : '') + '" data-selection="' + (startDecade.year() + 6) + '">' + (startDecade.year() + 1) + ' - ' + (startDecade.year() + 12) + '</span>';
+                    html += '<span dash-action="selectDecade" class="decade' + (date.isAfter(startDecade) && date.year() <= endDecadeYear ? ' active' : '') +
+                        (!isValid(startDecade, 'y') && !minDateDecade && !maxDateDecade ? ' disabled' : '') + '" dash-selection="' + (startDecade.year() + 6) + '">' + (startDecade.year() + 1) + ' - ' + (startDecade.year() + 12) + '</span>';
                     startDecade.add(12, 'y');
                 }
                 html += '<span></span><span></span><span></span>'; //push the dangling block over, at least this way it's even
@@ -746,7 +746,7 @@
                         date: currentDate,
                         classNames: clsNames
                     });
-                    row.append('<td data-action="selectDay" data-day="' + currentDate.format('L') + '" class="' + clsNames.join(' ') + '">' + currentDate.date() + '</td>');
+                    row.append('<td dash-action="selectDay" dash-day="' + currentDate.format('L') + '" class="' + clsNames.join(' ') + '">' + currentDate.date() + '</td>');
                     currentDate.add(1, 'd');
                 }
 
@@ -773,7 +773,7 @@
                         row = $('<tr>');
                         html.push(row);
                     }
-                    row.append('<td data-action="selectHour" class="hour' + (!isValid(currentHour, 'h') ? ' disabled' : '') + '">' + currentHour.format(use24Hours ? 'HH' : 'hh') + '</td>');
+                    row.append('<td dash-action="selectHour" class="hour' + (!isValid(currentHour, 'h') ? ' disabled' : '') + '">' + currentHour.format(use24Hours ? 'HH' : 'hh') + '</td>');
                     currentHour.add(1, 'h');
                 }
                 table.empty().append(html);
@@ -791,7 +791,7 @@
                         row = $('<tr>');
                         html.push(row);
                     }
-                    row.append('<td data-action="selectMinute" class="minute' + (!isValid(currentMinute, 'm') ? ' disabled' : '') + '">' + currentMinute.format('mm') + '</td>');
+                    row.append('<td dash-action="selectMinute" class="minute' + (!isValid(currentMinute, 'm') ? ' disabled' : '') + '">' + currentMinute.format('mm') + '</td>');
                     currentMinute.add(step, 'm');
                 }
                 table.empty().append(html);
@@ -808,7 +808,7 @@
                         row = $('<tr>');
                         html.push(row);
                     }
-                    row.append('<td data-action="selectSecond" class="second' + (!isValid(currentSecond, 's') ? ' disabled' : '') + '">' + currentSecond.format('ss') + '</td>');
+                    row.append('<td dash-action="selectSecond" class="second' + (!isValid(currentSecond, 's') ? ' disabled' : '') + '">' + currentSecond.format('ss') + '</td>');
                     currentSecond.add(5, 's');
                 }
 
@@ -816,10 +816,10 @@
             },
 
             fillTime = function () {
-                var toggle, newDate, timeComponents = widget.find('.timepicker span[data-time-component]');
+                var toggle, newDate, timeComponents = widget.find('.timepicker span[dash-time-component]');
 
                 if (!use24Hours) {
-                    toggle = widget.find('.timepicker [data-action=togglePeriod]');
+                    toggle = widget.find('.timepicker [dash-action=togglePeriod]');
                     newDate = date.clone().add((date.hours() >= 12) ? -12 : 12, 'h');
 
                     toggle.text(date.format('A'));
@@ -934,7 +934,7 @@
                 widget.hide();
 
                 $(window).off('resize', place);
-                widget.off('click', '[data-action]');
+                widget.off('click', '[dash-action]');
                 widget.off('mousedown', false);
 
                 widget.remove();
@@ -1245,7 +1245,7 @@
                 showMode();
 
                 $(window).on('resize', place);
-                widget.on('click', '[data-action]', doAction); // this handles clicks on the widget
+                widget.on('click', '[dash-action]', doAction); // this handles clicks on the widget
                 widget.on('mousedown', false);
 
                 if (component && component.hasClass('btn')) {
@@ -2606,7 +2606,7 @@
                 this.hide();
             },
             //tab: function (widget) { //this break the flow of the form. disabling for now
-            //    var toggle = widget.find('.picker-switch a[data-action="togglePicker"]');
+            //    var toggle = widget.find('.picker-switch a[dash-action="togglePicker"]');
             //    if(toggle.length > 0) toggle.click();
             //},
             'control space': function (widget) {
@@ -2614,7 +2614,7 @@
                     return;
                 }
                 if (widget.find('.timepicker').is(':visible')) {
-                    widget.find('.btn[data-action="togglePeriod"]').click();
+                    widget.find('.btn[dash-action="togglePeriod"]').click();
                 }
             },
             t: function () {

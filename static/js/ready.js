@@ -1,6 +1,6 @@
 
 $(function () {
-	$('[data-toggle="tooltip"]').tooltip()
+	$('[dash-toggle="tooltip"]').tooltip()
 });
 
 jQuery(document).ready(function(){
@@ -49,8 +49,8 @@ $(document).ready(function(){
 	}
 
 //select all
-$('[data-select="checkbox"]').change(function(){
-	$target = $(this).attr('data-target');
+$('[dash-select="checkbox"]').change(function(){
+	$target = $(this).attr('dash-target');
 	$($target).prop('checked', $(this).prop("checked"));
 })
 
