@@ -46,8 +46,8 @@
                             <i class="la la-sign-in"></i>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Sign in</a>
-                            <a class="dropdown-item" href="#">Create New account</a>
+                            <!--a class="dropdown-item" href="#">Sign in</a>
+                            <a class="dropdown-item" href="#">Create New account</a-->
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Sign out</a>
                         </div>
@@ -198,29 +198,29 @@
             </div>
             <ul class="nav">
                 <li class="nav-item">
-                    <a href="{% url 'dashboard' %}">
+                    <a href="Dashboard.html">
                         <i class="la la-dashboard"></i>
                         <p>Dashboard</p>
-
+                        <!--span class="badge badge-count">5</span-->
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{% url 'user' %}">
+                <li class="nav-item active">
+                    <a href="User.html">
                         <i class="la la-table"></i>
                         <p>Users</p>
                         <!--span class="badge badge-count">14</span-->
                     </a>
                 </li>
-                </a>
-                <li class="nav-item active">
-                    <a href="{% url 'cattle' %}">
+                <li class="nav-item">
+                    <a href="Cattle.html">
                         <i class="la la-th"></i>
                         <p>Cattle</p>
                         <!--span class="badge badge-count">6</span-->
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{% url 'predict_diagnose' %}">
+                    <a href="PredictDiagnose.html">
                         <i class="la la-keyboard-o"></i>
                         <p>Predict/Diagonise Disease</p>
                         <!--span class="badge badge-count">50</span-->
@@ -228,14 +228,14 @@
                 </li>
 
                 <!--li class="nav-item">
-                    <a href="chart.html">
+                    <a href="Monitor.html">
                         <i class="la la-stethoscope"></i>
                         <p>Monitor Cattle Health</p>
                         <span class="badge badge-success">3</span>
                     </a>
                 </li-->
                 <li class="nav-item">
-                    <a href="{% url 'disease' %}">
+                    <a href="Disease.html">
                         <i class="la la-yelp"></i>
                         <p>Disease Information</p>
                         <!--span class="badge badge-success">3</span-->
@@ -243,18 +243,12 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="{% url 'notification' %}">
+                    <a href="Notifications.html">
                         <i class="la la-bell"></i>
                         <p>Notifications</p>
                         <span class="badge badge-danger">4</span>
                     </a>
                 </li>
-                <!--li class="nav-item update-pro">
-                    <button  data-toggle="modal" data-target="#modalUpdate">
-                        <i class="la la-user-plus"></i>
-                        <p>About Us</p>
-                    </button>
-                </li-->
 
             </ul>
         </div>
@@ -262,82 +256,176 @@
     <div class="main-panel">
         <div class="content">
             <div class="container-fluid">
-                <!--h4 class="page-title">Users Forms</h4-->
                 <div class="row">
-                    <div class="col-md-12">
-                        <div class="col d-flex justify-content-center">
-                            <div class="card">
-                                <div class="card-header">
-                                    <div class="card" style="width: 24rem;">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Edit Profile</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group ">
+                                    <label for="first name">First Name</label>
+                                    <input type="first name" class="form-control" id="first name"
+                                           placeholder="enter first name" value="Ryan">
 
-                                        <img src="../assets/img/Mombe2.jpg" alt="Faith" style="width:100%">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Cattle Information</h5>
+                                </div>
+                                <div class="form-group">
+                                    <label for="other name">Other Name</label>
+                                    <input type="other name" class="form-control" id="other name"
+                                           placeholder="enter other name" value="Isheanesu">
 
+                                </div>
+                                <div class="form-group">
+                                    <label for="surname">Surname</label>
+                                    <input type="surname" class="form-control" id="surname" placeholder="enter surname"
+                                           value="Kuwanda">
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="date">Date of Birth</label>
+                                    <input type="date" class="form-control" id="surname" placeholder="YYYY/MM/DD"
+                                           value="1996-05-05">
+                                    <script type="text/javascript">
+                                        $(function () {
+                                            $('#datetimepicker1').datetimepicker();
+                                        });
+                                    </script>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="email">Email Address</label>
+                                    <input type="email" class="form-control" id="email" placeholder="enter email"
+                                           value="rkuwanda@gmail.com">
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="mobile number">Phone Number</label>
+                                    <input type="mobile number" class="form-control" id="mobile number"
+                                           placeholder="enter mobile number" value="0785412526">
+
+                                </div>
+                                <div class="form-check">
+                                    <label>Gender</label><br/>
+                                    <label class="form-radio-label">
+                                        <input class="form-radio-input" type="radio" name="optionsRadios" value=""
+                                               checked="Male">
+                                        <span class="form-radio-sign">Male</span>
+                                    </label>
+                                    <label class="form-radio-label ml-3">
+                                        <input class="form-radio-input" type="radio" name="optionsRadios" value="">
+                                        <span class="form-radio-sign">Female</span>
+                                    </label>
+                                    <label class="form-radio-label ml-3">
+                                        <input class="form-radio-input" type="radio" name="optionsRadios" value="">
+                                        <span class="form-radio-sign">Other</span>
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect1">User Level</label>
+                                    <select class="form-control" id="exampleFormControlSelect1" value="Administrator">
+                                        <option>Administrator</option>
+                                        <option>General User</option>
+                                        <option>Other</option>
+
+                                    </select>
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
                                         </div>
-                                        {% for detail in cattle_details %}
-                                            <ul class="list-group list-group-flush">
-                                                <li class="list-group-item">Name: {{ detail.name }}</li>
-                                                <li class="list-group-item">Date of
-                                                    Birth: {{ detail.date_of_birth }}</li>
-                                                <li class="list-group-item">
-                                                    Herd: {{ detail.tbl_heard_idtbl_heard.description }}</li>
-                                                <li class="list-group-item">
-                                                    Gender: {{ detail.tbl_cattle_gender_idtbl_cattle_gender.description }}</li>
-                                            </ul>
-                                        {% endfor %}
-                                        <div class="card-body">
-                                            <a href="edit_cattle.html" class="card-link">Edit Details</a>
-                                            <a href="edit_cattle.html" class="card-link">Delete Cattle</a>
-                                            <a href="graph.html" class="card-link">Monitor Cattle Health</a>
-                                        </div>
+                                        <button type="submit" class="btn btn-info btn-fill pull-left">Update Profile
+                                        </button>
+                                        <button type="submit" class="btn btn-danger  btn-fill pull-right">Delete User
+                                        </button>
+                                        <div class="clearfix"></div>
+                                        <br>
+                                    </div>
+                                </div>
 
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card card-user">
+                            <div class="card-image">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="col d-flex justify-content-center">
+                                            <div class="card">
+                                                <div class="card-header">
+
+                                                    <img src="../assets/img/profile3.jpg" alt="Faith"
+                                                         style="width:100%">
+                                                    <h4>Ryan Isheanesu Kuwanda</h4>
+                                                    <p class="title">Administrator</p>
+                                                    <p>rkuwanda@gmail.com</p>
+                                                    <p>+263783381598</p>
+                                                    <hr>
+                                                    <div class="button-container mr-auto ml-auto">
+                                                        <button href="#" class="btn btn-simple btn-link btn-icon">
+                                                            <i class="fa fa-facebook-square"></i>
+                                                        </button>
+                                                        <button href="#" class="btn btn-simple btn-link btn-icon">
+                                                            <i class="fa fa-twitter"></i>
+                                                        </button>
+                                                        <button href="#" class="btn btn-simple btn-link btn-icon">
+                                                            <i class="fa fa-google-plus-square"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
 
 
                                 <!--footer class="footer">
-                                <div class="container-fluid">
-                                    <nav class="pull-left">
-                                        <ul class="nav">
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="http://www.Monalissa.com">
-                                                    Monalissa
-                                                </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="#">
-                                                    Help
-                                                </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="#">
-                                                    Licenses
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </nav>
-                                    <div class="copyright ml-auto">
-                                        2019, made with <i class="la la-heart heart text-danger"></i> by <a href="http://www.Monalissa.com">fayielissa@yahoo.com</a>
-                                    </div>
-                                </div>
-                            </footer>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="modal fade" id="modalUpdate" tabindex="-1" role="dialog" aria-labelledby="modalUpdatePro" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header bg-primary">
-                                <h6 class="modal-title"><i class="la la-frown-o"></i> Under Development</h6>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
+                                    <div class="container-fluid">
+                            <nav class="pull-left">
+                                <ul class="nav">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="http://www.Monalissa.com">
+                                            Monalissa
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">
+                                            Help
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">
+                                            Licenses
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                            <div class="copyright ml-auto">
+                                2019, made with <i class="la la-heart heart text-danger"></i> by <a href="http://www.Monalissa.com">fayielissa@yahoo.com</a>
                             </div>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+        </div>
 
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button-->
+        <div class="modal fade" id="modalUpdate" tabindex="-1" role="dialog" aria-labelledby="modalUpdatePro" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header bg-primary">
+                        <h6 class="modal-title"><i class="la la-frown-o"></i> Under Development</h6>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button-->
                             </div>
                         </div>
                     </div>
