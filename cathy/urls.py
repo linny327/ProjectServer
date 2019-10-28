@@ -17,5 +17,6 @@ urlpatterns = [
     path('user/', views.user, name='user'),
     path('view_cattle/<int:id>', views.view_cattle, name='view_cattle'),
     path('view_user/<int:id>', views.view_user, name='view_user'),
+    path('new_user/', views.new_user, name='new_user'),
 
 ]
